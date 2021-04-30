@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [NewsController::class, 'index']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::view('home', 'home')->name('home');
+    Route::get('/admin', [AdminController::class, 'index']);
 });
 
